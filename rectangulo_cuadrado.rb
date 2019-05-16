@@ -1,10 +1,10 @@
 module Formula
   def perimetro
-    puts "El perímetro es #{(@largo + @ancho)*2}"
+    puts "El perímetro de #{self.class} es #{(@largo + @ancho)*2}"
   end
 
   def area
-    puts "El área es #{@largo * @ancho}"
+    puts "El área de #{self.class} es #{@largo * @ancho}"
   end
 
   end

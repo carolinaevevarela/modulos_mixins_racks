@@ -15,6 +15,7 @@ class Rectangulo
     @ancho = ancho
   end
   def lados
+    puts "El largo del rectángulo es #{@largo} y el ancho es #{@ancho}"
   end
 end
 
@@ -26,13 +27,16 @@ class Cuadrado
     @ancho = @lado
   end
   def lados
+    puts "Los lados del cuadrado miden #{@lado}"
   end
 end
 
 r = Rectangulo.new(3, 5)
+r.lados
 r.perimetro
 r.area
 
 c = Cuadrado.new(4)
+c.lados
 c.perimetro
 c.area

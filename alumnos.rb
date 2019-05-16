@@ -1,26 +1,26 @@
 class Alumno
-  attr_accessor :nombre, :nota1, :nota2, :nota3, :nota4
-  def initialize(nombre, nota1, nota2, nota3, nota4)
+  attr_accessor :nombre, :notas
+  def initialize(nombre, *notas)
     @nombre = nombre
-    @nota1 = nota1
-    @nota2 = nota2
-    @nota3 = nota3
-    @nota4 = nota4
+    @notas = notas.map(&:to_i)
   end
 
-  def self.read_file(notas)
+  def random
+    puts "El alumno #{@nombre} tiene #{@notas.join(', ')}"
+  end
+
+  def self.read_file(notas = 'notas.txt')
     alumnos = []
     file = File.open(notas)
     data = file.readlines
     file.close
 
     data.each do |alumno|
-      alumnos << Alumno.new(*alumno.split(', '))
+      alumnos << Alumno.new(*alumno.split(', ')).random
     end
 
     alumnos
   end
 end
 
-alumnos = Alumno.read_file('notas.txt')
-print alumnos
+Alumno.read_file
